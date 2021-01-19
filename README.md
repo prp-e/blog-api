@@ -141,9 +141,9 @@ curl -X POST -H 'Content-Type: application/json' -H 'Authorization: Bearer eyJ0e
 
 ### Update a post 
 
-**URL** : `/api/login`
+**URL** : `/api/posts/:id`
 
-**METHOD** : _POST_
+**METHOD** : _PUT_
 
 **Data constrains**
 ```json
@@ -157,26 +157,31 @@ curl -X POST -H 'Content-Type: application/json' -H 'Authorization: Bearer eyJ0e
 **Example**
 ```json
 {
-    "title" : [A valid string], 
-    "slug"  : [A - seperated string], 
-    "body"  : [The content of your post]
+    "title" : "May the force be with you", 
+    "slug"  : "may-the-force-be-with-you", 
+    "body"  : "This is a famous phrase from star wars, and I hate it. "
 }
 ```
 
 **Request example**
 ```
-curl -X POST -H 'Content-Type: application/json' -i 'http://127.0.0.1:8000/api/login' --data '{
-    "email":"johndoe2@example.com",
-    "password":"j0hndo3s@mazingp4ssword"
-}
+curl -X PUT -H 'Content-Type: application/json' -H 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYxMTA3ODUwMSwiZXhwIjoxNjExMDgyMTAxLCJuYmYiOjE2MTEwNzg1MDEsImp0aSI6ImZuZUxwZlAzQzBxNVo1SXAiLCJzdWIiOjMsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.G_6ZA2wF59Fd832Ohb4qQs68JRMitoswBFZ4THXH9KQ' -i 'http://127.0.0.1:8000/api/posts/5' --data '{
+    "title" : "May the force be with you", 
+    "slug"  : "may-the-force-be-with-you", 
+    "body"  : "This is a famous phrase from star wars, and I hate it. "
+}'
 ```
 
 **Response**
 ```json
 {
-  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYxMTA3ODUwMSwiZXhwIjoxNjExMDgyMTAxLCJuYmYiOjE2MTEwNzg1MDEsImp0aSI6ImZuZUxwZlAzQzBxNVo1SXAiLCJzdWIiOjMsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.G_6ZA2wF59Fd832Ohb4qQs68JRMitoswBFZ4THXH9KQ",
-  "type": "bearer",
-  "expires_in": 3600
+  "id": 5,
+  "user_id": 3,
+  "title": "May the force be with you",
+  "slug": "may-the-force-be-with-you",
+  "body": "This is a famous phrase from star wars, and I hate it.",
+  "created_at": "2021-01-19T17:58:20.000000Z",
+  "updated_at": "2021-01-19T17:59:47.000000Z"
 }
 ``` 
 
