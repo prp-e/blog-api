@@ -55,7 +55,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        return Post::find($id);
+        return Post::findOrFail($id);
     }
 
     /**
@@ -67,7 +67,7 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $post = Post::find($id);
+        $post = Post::findOrFail($id);
         if($post->user_id != auth()->user()->id){
             return abort(400); 
         }
@@ -84,7 +84,7 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        $post = Post::find($id); 
+        $post = Post::findOrFail($id); 
         if($post->user_id != auth()->user()->id){
             return abort(400); 
         }
