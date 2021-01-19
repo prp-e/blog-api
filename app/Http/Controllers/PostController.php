@@ -26,7 +26,7 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $post = Post::create($request->all());
-        return $post 
+        return $post;
     }
 
     /**
@@ -35,9 +35,9 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($id)
     {
-        //
+        return Post::find($id);
     }
 
     /**
@@ -47,9 +47,12 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, $id)
     {
-        //
+        $post = Post::find($id);
+        $post->update($request->all()); 
+
+        return $post;
     }
 
     /**
@@ -58,8 +61,8 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy($id)
     {
-        //
+        Post::destroy($id);
     }
 }
