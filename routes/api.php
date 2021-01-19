@@ -3,7 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
-use App\Models\User; 
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 /*
@@ -30,4 +31,12 @@ Route::post('/signup', function(Request $request){
     ]);
 
     return $user; 
+});
+
+Route::post('/login', function () {
+    $credentials = request()->only(['email', 'password']);
+
+    $token = Auth::attempt($credentials);
+
+    return $token;
 });
