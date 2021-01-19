@@ -88,6 +88,6 @@ class PostController extends Controller
         if($post->user_id != auth()->user()->id){
             return abort(400); 
         }
-        $post::destroy; 
+        Post::destroy($post->id);
     }
 }
