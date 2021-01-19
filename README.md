@@ -81,3 +81,14 @@ curl -X POST -H 'Content-Type: application/json' -i 'http://127.0.0.1:8000/api/l
   "expires_in": 3600
 }
 ``` 
+
+## posts
+
+**URL** : `/api/posts`
+
+**METHOD** : _GET_
+
+**Request example**
+```
+curl -X GET -i 'http://127.0.0.1:8000/api/posts'
+```
