@@ -95,40 +95,47 @@ curl -X GET -i 'http://127.0.0.1:8000/api/posts'
 
 ### Create a post 
 
-**URL** : `/api/login`
+**URL** : `/api/posts`
 
 **METHOD** : _POST_
 
 **Data constrains**
 ```json
 {
-    "email"    : [A valid email address],
-    "password" : [A valid string]
+    "title" : [A valid string], 
+    "slug"  : [A - seperated string], 
+    "body"  : [The content of your post]
 }
 ``` 
 
 **Example**
 ```json
 {
-    "email"    : "johndoe@example.com",
-    "password" : "j0hndo3s@mazingp4ssword"
+    "title" : "May the force be with you", 
+    "slug"  : "may-the-force-be-with-you", 
+    "body"  : "This is a famous phrase from star wars"
 }
 ```
 
 **Request example**
 ```
-curl -X POST -H 'Content-Type: application/json' -i 'http://127.0.0.1:8000/api/login' --data '{
-    "email":"johndoe2@example.com",
-    "password":"j0hndo3s@mazingp4ssword"
-}
+curl -X POST -H 'Content-Type: application/json' -H 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYxMTA3ODUwMSwiZXhwIjoxNjExMDgyMTAxLCJuYmYiOjE2MTEwNzg1MDEsImp0aSI6ImZuZUxwZlAzQzBxNVo1SXAiLCJzdWIiOjMsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.G_6ZA2wF59Fd832Ohb4qQs68JRMitoswBFZ4THXH9KQ' -i 'http://127.0.0.1:8000/api/posts' --data '{
+    "title" : "May the force be with you", 
+    "slug"  : "may-the-force-be-with-you", 
+    "body"  : "This is a famous phrase from star wars"
+}'
 ```
 
 **Response**
 ```json
 {
-  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYxMTA3ODUwMSwiZXhwIjoxNjExMDgyMTAxLCJuYmYiOjE2MTEwNzg1MDEsImp0aSI6ImZuZUxwZlAzQzBxNVo1SXAiLCJzdWIiOjMsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.G_6ZA2wF59Fd832Ohb4qQs68JRMitoswBFZ4THXH9KQ",
-  "type": "bearer",
-  "expires_in": 3600
+  "title": "May the force be with you",
+  "slug": "may-the-force-be-with-you",
+  "body": "This is a famous phrase from star wars",
+  "user_id": 3,
+  "updated_at": "2021-01-19T17:58:20.000000Z",
+  "created_at": "2021-01-19T17:58:20.000000Z",
+  "id": 5
 }
 ``` 
 
@@ -141,16 +148,18 @@ curl -X POST -H 'Content-Type: application/json' -i 'http://127.0.0.1:8000/api/l
 **Data constrains**
 ```json
 {
-    "email"    : [A valid email address],
-    "password" : [A valid string]
+    "title" : [A valid string], 
+    "slug"  : [A - seperated string], 
+    "body"  : [The content of your post]
 }
 ``` 
 
 **Example**
 ```json
 {
-    "email"    : "johndoe@example.com",
-    "password" : "j0hndo3s@mazingp4ssword"
+    "title" : [A valid string], 
+    "slug"  : [A - seperated string], 
+    "body"  : [The content of your post]
 }
 ```
 
