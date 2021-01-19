@@ -36,7 +36,7 @@
 
 **Request example**
 ```
-curl -X POST -i 'http://127.0.0.1:8000/api/signup' --data '{
+curl -X POST -H 'Content-Type: application/json' -i 'http://127.0.0.1:8000/api/signup' --data '{
     "name":"John Doe",
     "email":"johndoe2@example.com",
     "password":"j0hndo3s@mazingp4ssword"
