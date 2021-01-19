@@ -32,11 +32,3 @@ Route::post('/signup', function(Request $request){
 
     return $user; 
 });
-
-Route::post('/login', function () {
-    $credentials = request()->only(['email', 'password']);
-
-    $token = Auth::attempt($credentials);
-
-    return $token;
-});
