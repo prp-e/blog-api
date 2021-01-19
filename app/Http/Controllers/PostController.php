@@ -34,7 +34,6 @@ class PostController extends Controller
             'title' => 'required|max:150',
             'slug' => 'required|max:64',
             'body' => 'required',
-            'user_id' => 'required'
         ]);
         
         $user = auth()->user();

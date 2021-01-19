@@ -6,6 +6,7 @@ use App\Http\Controllers\PostController;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::resource('posts', PostController::class);
+Route::post('/login', [AuthController::class, 'login']);
 Route::post('/signup', function(Request $request){
     $user = User::create([
         'name' => $request->name,
