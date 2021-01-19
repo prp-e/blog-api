@@ -25,7 +25,7 @@
 }
 ``` 
 
-***Example**
+**Example**
 ```json
 {
     "name"     : "John Doe",
@@ -57,7 +57,7 @@ curl -X POST -H 'Content-Type: application/json' -i 'http://127.0.0.1:8000/api/s
 }
 ``` 
 
-***Example**
+**Example**
 ```json
 {
     "email"    : "johndoe@example.com",
