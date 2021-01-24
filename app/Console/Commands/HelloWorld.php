@@ -11,14 +11,14 @@ class HelloWorld extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'hello:world';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Simply says Hello World!';
 
     /**
      * Create a new command instance.
@@ -37,6 +37,6 @@ class HelloWorld extends Command
      */
     public function handle()
     {
-        return 0;
+        echo "Hello, World!";
     }
 }
